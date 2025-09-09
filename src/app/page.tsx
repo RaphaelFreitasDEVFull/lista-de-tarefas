@@ -23,7 +23,7 @@ import { ListCheck, Loader2, Plus, Sigma, Trash } from "lucide-react";
 import EditTask from "@/components/partials/edit-task";
 import { getTasks } from "@/actions/get-tasks";
 import { useEffect, useState } from "react";
-import { Tasks } from "@prisma/client";
+import { Task } from "@prisma/client";
 import { addTask } from "@/actions/add-task";
 import { deleteTask } from "@/actions/delete-task";
 import { toast } from "sonner";
@@ -32,11 +32,11 @@ import Filter from "@/components/partials/filter";
 import { deleteDoneTasks } from "@/actions/delete-done-tasks";
 
 const Home = () => {
-  const [tasks, setTasks] = useState<Tasks[]>([]);
+  const [tasks, setTasks] = useState<Task[]>([]);
   const [taskValue, setTaskValue] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [currentFilter, setCurrentFilter] = useState("all");
-  const [filteredTasks, setFilteredTasks] = useState<Tasks[]>([]);
+  const [filteredTasks, setFilteredTasks] = useState<Task[]>([]);
 
   useEffect(() => {
     handleGetTasks();
@@ -181,7 +181,11 @@ const Home = () => {
                 ></div>
                 <p
                   onClick={() => handleToggleTask(task.id)}
-                  className="flex-1 text-sm cursor-pointer hover:text-gray-700"
+                  className={`${
+                    task.done
+                      ? "flex-1 text-sm cursor-pointer hover:text-gray-700 line-through"
+                      : "flex-1 text-sm cursor-pointer hover:text-gray-700"
+                  }`}
                 >
                   {task.task}
                 </p>
