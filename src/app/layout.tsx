@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Figtree } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "@/components/ui/sonner";
 
 const figtree = Figtree({ subsets: ["latin"] });
 
@@ -21,6 +22,7 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         {children}
+        <Toaster position="top-right" richColors />
       </body>
     </html>
   );
