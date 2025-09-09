@@ -8,7 +8,7 @@ import {
   DialogHeader,
 } from "../ui/dialog";
 import { Input } from "../ui/input";
-import { Tasks } from "@/generated/prisma";
+import { Tasks } from "@prisma/client";
 import { useState } from "react";
 import { toast } from "sonner";
 import { editTask } from "@/actions/edit-task";

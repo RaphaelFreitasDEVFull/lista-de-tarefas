@@ -23,7 +23,7 @@ import { ListCheck, Loader2, Plus, Sigma, Trash } from "lucide-react";
 import EditTask from "@/components/partials/edit-task";
 import { getTasks } from "@/actions/get-tasks";
 import { useEffect, useState } from "react";
-import { Tasks } from "@/generated/prisma";
+import { Tasks } from "@prisma/client";
 import { addTask } from "@/actions/add-task";
 import { deleteTask } from "@/actions/delete-task";
 import { toast } from "sonner";
